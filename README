@@ -36,7 +36,7 @@ https://buildroot.org/manual.html#submitting-patches
 
 
 =========================================================================
-外部編譯方法
+====外部編譯方法
 說明檔 buildroot/docs/manual/using-buildroot-development.txt
 
 1. modify buildroot/linux/linux.mk 
@@ -44,22 +44,49 @@ https://buildroot.org/manual.html#submitting-patches
 2. make linux-rebuild all
 
 =========================================================================
+====編譯beaglebone
 cd /home/dikey/sdk/buildroot
 make O=out_beaglebone beaglebone_defconfig
 make O=out_beaglebone menuconfig
 make -j4 O=out_beaglebone 2>&1 | tee ./out_beaglebone.log
 
 -------------------------------------------------------------------------
+====編譯beaglebone qt5
 cd /home/dikey/sdk/buildroot
 make O=out_beaglebone_qt5 beaglebone_qt5_defconfig
 make O=out_beaglebone_qt5 menuconfig
 make -j4 O=out_beaglebone_qt5 2>&1 | tee ./out_beaglebone_qt5.log
 
 =========================================================================
-qt5declarative-5.8.0 編譯失敗
+====編譯失敗 qt5declarative-5.8.0 
 修改 build/qt5declarative-5.8.0/examples/examples.pro ，不要去編譯 quick
 這時安裝會失敗
 執行 touch build/qt5declarative-5.8.0/.stamp_target_installed
+
+
+=========================================================================
+====HOST編譯 QT project
+test -e Makefile 
+--------
+buildroot/out_beaglebone_qt5/host/usr/bin/qmake -project			#產生 .pro
+--------
+buildroot/out_beaglebone_qt5/host/usr/bin/qmake -o Makefile ./xx.pro  														#產生 Makefile
+buildroot/out_beaglebone_qt5/host/usr/bin/qmake -o Makefile ./xx.pro -spec buildrootout_beaglebone_qt5/build/qt5base-5.8.0/mkspecs/devices/linux-buildroot-g++ 			#產生 Makefile
+--------
+/usr/bin/make -f Makefile							#編譯
+
+=========================================================================
+====TARGET編譯 QT project
+buildroot/out_beaglebone_qt5/host/usr/bin/qmake -project			#產生 .pro
+--------
+buildroot/out_beaglebone_qt5/host/usr/bin/qmake -o Makefile ./xx.pro -spec buildroot/out_beaglebone_qt5/build/qt5base-5.8.0/mkspecs/devices/linux-buildroot-g++			#產生 Makefile
+buildroot/out_beaglebone_qt5/host/usr/bin/qmake -o Makefile ./xx.pro -spec buildroot/out_beaglebone_qt5/build/qt5base-5.8.0/mkspecs/devices/linux-beagleboard-g++		#產生 Makefile
+buildroot/out_beaglebone_qt5/host/usr/bin/qmake -o Makefile ./xx.pro -spec buildroot/out_beaglebone_qt5/build/qt5base-5.8.0/mkspecs/devices/linux-beagleboard-g++/qmake.conf	#產生 Makefile
+--------
+buildroot/out_beaglebone_qt5/build/qt5base-5.8.0/bin/qmake 			#編譯 
+buildroot/out_beaglebone_qt5/build/qt5base-5.8.0/bin/qmake -f Makefile 		#編譯
+
+
 
 
 
