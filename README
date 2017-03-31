@@ -34,7 +34,32 @@ https://buildroot.org/manual.html#submitting-patches
 	make O=../outputs/device2 menuconfig
 	make O=../outputs/device2
 
+
+
+
+=========================================================================
+cd /home/dikey/sdk/buildroot
+make O=out_beaglebone beaglebone_defconfig
+make O=out_beaglebone menuconfig
+make -j4 O=out_beaglebone 2>&1 | tee ./out_beaglebone.log
+
+-------------------------------------------------------------------------
 cd /home/dikey/sdk/buildroot
 make O=out_beaglebone_qt5 beaglebone_qt5_defconfig
 make O=out_beaglebone_qt5 menuconfig
-make -j1 O=out_beaglebone_qt5 2>&1 | tee ./out_beaglebone_qt5.log
+make -j4 O=out_beaglebone_qt5 2>&1 | tee ./out_beaglebone_qt5.log
+
+=========================================================================
+qt5declarative-5.8.0 編譯失敗
+修改 build/qt5declarative-5.8.0/examples/examples.pro ，不要去編譯 quick
+這時安裝會失敗
+執行 touch build/qt5declarative-5.8.0/.stamp_target_installed
+
+
+
+
+
+
+
+
+
