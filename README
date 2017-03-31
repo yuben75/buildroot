@@ -36,8 +36,12 @@ https://buildroot.org/manual.html#submitting-patches
 
 
 =========================================================================
-BR2_PACKAGE_OVERRIDE_FILE， OVERRIDE_SRCDIR 說明檔
-buildroot/docs/manual/using-buildroot-development.txt
+外部編譯方法
+說明檔 buildroot/docs/manual/using-buildroot-development.txt
+
+1. modify buildroot/linux/linux.mk 
+ 	"LINUX_OVERRIDE_SRCDIR = /home/dikey/sdk/buildroot/out_beaglebone/build/linux-adde2ca9f86797071f6e7b2b9e779fa5e4a8f3cd"
+2. make linux-rebuild all
 
 =========================================================================
 cd /home/dikey/sdk/buildroot

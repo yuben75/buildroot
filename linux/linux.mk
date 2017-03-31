@@ -8,6 +8,9 @@ LINUX_VERSION = $(call qstrip,$(BR2_LINUX_KERNEL_VERSION))
 LINUX_LICENSE = GPLv2
 LINUX_LICENSE_FILES = COPYING
 
+LINUX_OVERRIDE_SRCDIR = /home/dikey/sdk/buildroot/out_beaglebone/build/linux-adde2ca9f86797071f6e7b2b9e779fa5e4a8f3cd
+
+
 define LINUX_HELP_CMDS
 	@echo '  linux-menuconfig       - Run Linux kernel menuconfig'
 	@echo '  linux-savedefconfig    - Run Linux kernel savedefconfig'
