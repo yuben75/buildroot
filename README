@@ -36,5 +36,5 @@ https://buildroot.org/manual.html#submitting-patches
 
 cd /home/dikey/sdk/buildroot
 make O=out_beaglebone_qt5 beaglebone_qt5_defconfig
-make O=build_beaglebone_qt5 menuconfig
+make O=out_beaglebone_qt5 menuconfig
 make -j1 O=out_beaglebone_qt5 2>&1 | tee ./out_beaglebone_qt5.log
