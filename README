@@ -35,7 +35,9 @@ https://buildroot.org/manual.html#submitting-patches
 	make O=../outputs/device2
 
 
-
+=========================================================================
+BR2_PACKAGE_OVERRIDE_FILE， OVERRIDE_SRCDIR 說明檔
+buildroot/docs/manual/using-buildroot-development.txt
 
 =========================================================================
 cd /home/dikey/sdk/buildroot
