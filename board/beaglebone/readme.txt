@@ -40,6 +40,7 @@ output/images/
 ├── uEnv.txt
 └── zImage
 
+yuben75
 To copy the image file to the sdcard use dd:
 $ dd if=output/images/sdcard.img of=/dev/XXX
 
