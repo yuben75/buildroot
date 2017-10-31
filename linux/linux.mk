@@ -8,7 +8,7 @@ LINUX_VERSION = $(call qstrip,$(BR2_LINUX_KERNEL_VERSION))
 LINUX_LICENSE = GPLv2
 LINUX_LICENSE_FILES = COPYING
 
-LINUX_OVERRIDE_SRCDIR = /home/dikey/sdk/buildroot/out_beaglebone/build/linux-adde2ca9f86797071f6e7b2b9e779fa5e4a8f3cd
+LINUX_OVERRIDE_SRCDIR = /home/dikey/sdk/buildroot/out_beaglebone_qt5/build/linux-52c4aa7cdb93d61f8008f380135beaf7b8fa6593
 
 
 define LINUX_HELP_CMDS
